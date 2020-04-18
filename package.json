@@ -1,6 +1,6 @@
 {
   "name": "@krisell/type-trigger",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Invoke actions on web pages by typing specific words",
   "main": "dist/index.js",
   "scripts": {
