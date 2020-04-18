@@ -8,6 +8,10 @@
     "build": "cross-env BABEL_ENV=production babel src --out-dir dist",
     "prepublish": "npm test"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krisell/type-trigger.git"
+  },
   "author": "Martin Krisell",
   "license": "MIT",
   "bugs": {
