@@ -21,6 +21,13 @@ const keypress = key => {
 }
 
 class TypeTrigger {
+  // This is mainly used for testing, but could be useful in application code as well
+  static type (word) {
+    word.split('').forEach(character => {
+      keypress(character)
+    })
+  }
+
   static register (word, cb) {
     if (!isInitialized) {
       window.document.addEventListener('keypress', e => { keypress(e.key) })
