@@ -31,3 +31,8 @@ As soon as an unrecognized pattern is written, the detection is reset, i.e. typi
 If you want a triggered state to persist between page refreshes, you could store that in LocalStorage.
 
 The trigger words are not intended to be secret or sensitive, just undocumented. It's a lot easier to add a trigger word than having to create a custom admin interface, or forcing someone to add a custom LocalStorage value, for testing purposes.
+
+## Notes
+TypeTrigger listens for keypress events on `window.documnet`. Changing this to a specified dom element could be a future addition, feel free to add an issue or send in a PR. Note however that it only listens after the first registration, i.e. only importing the package does not activate it.
+
+If you stop the propagation of keypress events, it will not reach this package.

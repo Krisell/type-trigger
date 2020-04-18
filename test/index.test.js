@@ -1,5 +1,11 @@
 import TypeTrigger from '../dist/index.js'
 
 test('One', () => {
-    expect(true).toBe(true)
+    let a = false
+
+    TypeTrigger.register('monkey', () => {
+        a = true
+    })
+
+
 })
