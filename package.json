@@ -1,0 +1,26 @@
+{
+  "name": "@krisell/type-trigger",
+  "version": "1.0.0",
+  "description": "Invoke actions on web pages by typing specific words",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "npm run build && jest",
+    "build": "cross-env BABEL_ENV=production babel src --out-dir dist",
+    "prepublish": "npm test"
+  },
+  "author": "Martin Krisell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Krisell/type-trigger/issues"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "babel-jest": "^25.3.0",
+    "babel-preset-minify": "^0.5.1",
+    "cross-env": "^7.0.2",
+    "jest": "^25.3.0",
+    "regenerator-runtime": "^0.13.5"
+  }
+}
