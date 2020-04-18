@@ -62,6 +62,16 @@ test('The same word can be registered multiple times', () => {
     expect(counter).toBe(3)
 })
 
+test('Triggerwords can overlap and not reset eachother', () => {
+    let counter = 0
+
+    TypeTrigger.register('monkey', () => counter++)
+    TypeTrigger.register('keycode', () => counter++)
+
+    TypeTrigger.type('monkeycode')
+    expect(counter).toBe(2)
+})
+
 test('Invalid registrations does not throw an error', () => {
     let counter = 0
 
