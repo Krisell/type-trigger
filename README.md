@@ -1,5 +1,5 @@
 # TypeTrigger
-Invoke actions on web pages by typing specific words. Only 2 KB gzipped.
+Invoke actions on web pages by typing specific words. Only 2 KB gzipped and no runtime dependencies.
 
 ## Install
 ```bash
