@@ -19,7 +19,7 @@ TypeTrigger.register('localtesting', () => {
 })
 ```
 
-As soon as you type `beta` or `otherfeature` on the keyboard, the actions will be invoked.
+As soon as you type `beta` or `localtesting` on the keyboard, the actions will be invoked.
 As soon as an unrecognized pattern is written, the detection is reset, i.e. typing `bettabeetaSomeRandombeta` will trigger on the last four characters, not before. Typing `monkeycode` would trigger both `monkey` and `keycode`.
 
 ## Use cases
