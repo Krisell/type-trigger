@@ -18,13 +18,13 @@
     "url": "https://github.com/Krisell/type-trigger/issues"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.0",
-    "@babel/preset-env": "^7.9.5",
-    "babel-jest": "^25.3.0",
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/preset-env": "^7.11.5",
+    "babel-jest": "^25.5.1",
     "babel-preset-minify": "^0.5.1",
     "cross-env": "^7.0.2",
-    "jest": "^25.3.0",
-    "regenerator-runtime": "^0.13.5"
+    "jest": "^25.5.4",
+    "regenerator-runtime": "^0.13.7"
   }
 }
