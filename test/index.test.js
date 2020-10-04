@@ -1,82 +1,82 @@
 import TypeTrigger from '../dist/index.js'
 
 test('It triggers a single event when the word is typed', () => {
-    let a = false
+    const callback = jest.fn()
 
-    TypeTrigger.register('monkey', () => { a = true })
+    TypeTrigger.register('monkey', callback)
 
-    expect(a).toBe(false)
+    expect(callback).not.toHaveBeenCalled()
     TypeTrigger.type('monkey')
-    expect(a).toBe(true)
+    expect(callback).toHaveBeenCalledTimes(1)
 })
 
 test('It resets correctly when mistyping', () => {
-    let a = false
+    const callback = jest.fn()
 
-    TypeTrigger.register('monkey', () => { a = true })
+    TypeTrigger.register('monkey', callback)
 
     TypeTrigger.type('monke')
-    expect(a).toBe(false)
+    expect(callback).not.toHaveBeenCalled()
 
     TypeTrigger.type('onkey')
-    expect(a).toBe(false)
+    expect(callback).not.toHaveBeenCalled()
 
     TypeTrigger.type('mon')
     TypeTrigger.type('ke')
-    expect(a).toBe(false)
+    expect(callback).not.toHaveBeenCalled()
     TypeTrigger.type('y')
-    expect(a).toBe(true)
+    expect(callback).toHaveBeenCalledTimes(1)
 })
 
 test('It can handle multiple registrations', () => {
-    let a = false
-    let b = false
+    const callback_a = jest.fn()
+    const callback_b = jest.fn()
 
-    TypeTrigger.register('monkey', () => { a = true })
-    TypeTrigger.register('donkey', () => { b = true })
+    TypeTrigger.register('monkey', callback_a)
+    TypeTrigger.register('donkey', callback_b)
 
     TypeTrigger.type('monk')
     TypeTrigger.type('donk')
     TypeTrigger.type('key')
-    expect(a).toBe(false)
-    expect(b).toBe(false)
+    expect(callback_a).not.toHaveBeenCalled()
+    expect(callback_b).not.toHaveBeenCalled()
 
     TypeTrigger.type('mon')
     TypeTrigger.type('don')
     TypeTrigger.type('key')
-    expect(a).toBe(false)
-    expect(b).toBe(true)
+    expect(callback_a).not.toHaveBeenCalled()
+    expect(callback_b).toHaveBeenCalledTimes(1)
 })
 
 test('The same word can be registered multiple times', () => {
-    let counter = 0
+    const callback = jest.fn()
 
-    TypeTrigger.register('monkey', () => { counter++ })
-    TypeTrigger.register('monkey', () => { counter++ })
-    TypeTrigger.register('donkey', () => { counter++ })
+    TypeTrigger.register('monkey', callback)
+    TypeTrigger.register('monkey', callback)
+    TypeTrigger.register('donkey', callback)
 
     TypeTrigger.type('donkey')
-    expect(counter).toBe(1)
+    expect(callback).toHaveBeenCalledTimes(1)
 
     TypeTrigger.type('monkey')
-    expect(counter).toBe(3)
+    expect(callback).toHaveBeenCalledTimes(3)
 })
 
 test('Triggerwords can overlap and not reset eachother', () => {
-    let counter = 0
+    const callback = jest.fn()
 
-    TypeTrigger.register('monkey', () => counter++)
-    TypeTrigger.register('keycode', () => counter++)
+    TypeTrigger.register('monkey', callback)
+    TypeTrigger.register('keycode', callback)
 
     TypeTrigger.type('monkeycode')
-    expect(counter).toBe(2)
+    expect(callback).toHaveBeenCalledTimes(2)
 })
 
 test('Invalid registrations does not throw an error', () => {
-    let counter = 0
+    const callback = jest.fn()
 
     TypeTrigger.register('monkey', 'not-a-function')
 
     TypeTrigger.type('monkey')
-    expect(counter).toBe(0)
+    expect(callback).toHaveBeenCalledTimes(0)
 })
