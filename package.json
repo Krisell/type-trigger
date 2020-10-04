@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "npm run build && jest",
+    "test:watch": "npm run build && jest --watch",
     "build": "cross-env BABEL_ENV=production babel src --out-dir dist",
     "prepublish": "npm test"
   },
