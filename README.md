@@ -1,5 +1,5 @@
 # TypeTrigger
-Invoke actions on web pages by typing specific words. Zero runtime dependencies and `< 1KB` using Brotli compression.
+Invoke actions on web pages by typing specific words. **Zero** runtime dependencies and `< 1KB` using Brotli compression.
 
 ## Install
 ```bash
