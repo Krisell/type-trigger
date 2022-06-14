@@ -19,11 +19,14 @@
     "url": "https://github.com/Krisell/type-trigger/issues"
   },
   "devDependencies": {
-    "@babel/cli": "^7.13.16",
-    "@babel/core": "^7.14.0",
-    "@babel/preset-env": "^7.14.1",
-    "babel-jest": "^26.6.3",
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.5",
+    "@babel/preset-env": "^7.18.2",
+    "babel-jest": "^28.1.1",
     "cross-env": "^7.0.3",
-    "jest": "^26.6.3"
+    "jest": "^28.1.1"
+  },
+  "dependencies": {
+    "jest-environment-jsdom": "^28.1.1"
   }
 }
