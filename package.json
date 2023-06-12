@@ -25,6 +25,7 @@
     "babel-jest": "^28.1.1",
     "cross-env": "^7.0.3",
     "jest": "^28.1.1",
-    "jest-environment-jsdom": "^28.1.1"
+    "jest-environment-jsdom": "^28.1.1",
+    "typescript": "^5.1.3"
   }
 }
