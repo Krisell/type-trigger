@@ -11,7 +11,7 @@ npm i @krisell/type-trigger
 import TypeTrigger from '@krisell/type-trigger'
 
 TypeTrigger.register('beta', () => {
-  // Whatever action you want, for instance `this.showBeta = true` in a Vue app
+  // Whatever action you want, for instance `showBeta.value = true` in a Vue app
 })
 
 TypeTrigger.register('localtesting', () => {
@@ -28,12 +28,12 @@ As soon as an unrecognized pattern is written, the detection is reset, i.e. typi
  * Show debug information (nothing secret though)
  * Administrative work, e.g. login as other user (of course provided user has authorization)
 
-The trigger words are not intended to be secret or sensitive, just undocumented. It's easier to add a trigger word than having to create a custom admin interface, or forcing someone to add a custom LocalStorage value or add a query parameter for testing purposes.
+The trigger words are not intended to be secret or sensitive, just undocumented for the end-user. I have found it much easier to remember and use a trigger word than forcing someone to add a custom LocalStorage value or add a query parameter for testing purposes.
 
 ## Notes
 TypeTrigger listens for keypress events on `window.document`. Changing this to a specified dom element could be a future addition, feel free to add an issue or send in a PR. Note however that it only listens after the first registration, i.e. only importing the package does not activate it or add the listener. It uses one listener in total, not one per registration.
 
-If you stop the propagation of keypress events, it will not reach this package.
+If you stop the propagation of keypress events before it bubbles up to `window.document`, it will not reach this package.
 
 ## Licence
 MIT
