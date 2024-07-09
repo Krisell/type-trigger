@@ -1,7 +1,10 @@
+import { test, vi, expect } from 'vitest'
 import TypeTrigger from '../dist/index.js'
 
+vi.stubGlobal('window', { document: { addEventListener: vi.fn() } })
+
 test('It triggers a single event when the word is typed', () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     TypeTrigger.register('monkey', callback)
 
@@ -11,7 +14,7 @@ test('It triggers a single event when the word is typed', () => {
 })
 
 test('It resets correctly when mistyping', () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     TypeTrigger.register('monkey', callback)
 
@@ -29,8 +32,8 @@ test('It resets correctly when mistyping', () => {
 })
 
 test('It can handle multiple registrations', () => {
-    const callback_a = jest.fn()
-    const callback_b = jest.fn()
+    const callback_a = vi.fn()
+    const callback_b = vi.fn()
 
     TypeTrigger.register('monkey', callback_a)
     TypeTrigger.register('donkey', callback_b)
@@ -49,7 +52,7 @@ test('It can handle multiple registrations', () => {
 })
 
 test('The same word can be registered multiple times', () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     TypeTrigger.register('monkey', callback)
     TypeTrigger.register('monkey', callback)
@@ -63,7 +66,7 @@ test('The same word can be registered multiple times', () => {
 })
 
 test('Triggerwords can overlap and not reset eachother', () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     TypeTrigger.register('monkey', callback)
     TypeTrigger.register('keycode', callback)
@@ -73,7 +76,7 @@ test('Triggerwords can overlap and not reset eachother', () => {
 })
 
 test('Invalid registrations does not throw an error', () => {
-    const callback = jest.fn()
+    const callback = vi.fn()
 
     TypeTrigger.register('monkey', 'not-a-function')
 
